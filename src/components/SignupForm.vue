@@ -1,6 +1,6 @@
 <template>
-  <!-- v-on은 @와도 같다.
-       v-on:submit="" -> @submit="" -->
+  <!-- v-on은 @와도 같다. | v-on:submit="" -> @submit="" 
+       prevent은 form의 from의 기본구조인 제출하고 페이지이동하는 새로고침을 막을수 있다. -->
   <form @submit.prevent="submitForm">
     <div>
       <label for="username">id: </label>
