@@ -29,14 +29,20 @@ export default {
 
   methods: {
     async submitForm() {
-      const userData = {
-        username: this.username,
-        password: this.password,
-      };
-      const { data } = await loginUser(userData);
-      console.log(data.user.nickname);
-      this.logMessage = `${data.user.nickname}님 환영합니다`;
-      this.initFrom();
+      try {
+        // 비지니스 로직
+        const userData = {
+          username: this.username,
+          password: this.password,
+        };
+        const { data } = await loginUser(userData);
+        console.log(data.user.nickname);
+        this.logMessage = `${data.user.nickname}님 환영합니다`;
+        this.initFrom();
+      } catch (error) {
+        // 에러 핸들링할 코드
+        console.log(error.response);
+      }
     },
     initFrom() {
       this.username = '';
